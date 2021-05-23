@@ -2,18 +2,19 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
-import { IComment } from "../../../../libs/types";
+import { IComment, IPost } from "../../../../libs/types";
 import CommentCard from "../../../components/CommentCard";
 import CreateComment from "../../../components/CreateComment";
 import Loader from "../../../components/Loader";
 import PostCard from "../../../components/PostCard";
 const index = () => {
-  const {
-    query: { postId },
-  } = useRouter();
+  const router = useRouter();
+  const postId = parseInt(router.query.postId as string);
   const { data: comments, error } = useSWR<IComment[]>(
-    postId && `http://localhost:3001/posts/${postId}/comments`,
-    (url: string) => axios(url).then((r) => r.data)
+    postId && `/posts/${postId}/comments`
+  );
+  const { data: posts, error: postsError } = useSWR<IPost[]>(
+    postId && `/posts`
   );
   // console.log({ , error });
   // const [comments, setComments] = useState<IComment[]>(null);
@@ -32,7 +33,7 @@ const index = () => {
   return (
     <div className="w-1/2 p-4 mx-auto text-center">
       {/* <h1>Post {postId }</h1> */}
-      {/* <PostCard /> */}
+      {posts && <PostCard post={posts[postId - 1]} />}
       <CreateComment />
       <h2 className="mb-4">Comments</h2>
       {!comments && <Loader />}

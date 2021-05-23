@@ -6,10 +6,7 @@ import { IPost } from "../../libs/types";
 import Loader from "./Loader";
 
 const PostsList = () => {
-  const { data: posts, error } = useSWR<IPost[]>(
-    "http://localhost:3001/posts",
-    (url: string) => axios(url).then((r) => r.data)
-  );
+  const { data: posts, error } = useSWR<IPost[]>("/posts");
 
   //const [posts, setPosts] = useState<IPost[]>(null);
   // const getPosts = async () => {
