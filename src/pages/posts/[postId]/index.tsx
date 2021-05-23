@@ -29,11 +29,12 @@ const index = () => {
   // useEffect(() => {
   //   postId && getComments();
   // }, [postId]);
+  const postIndex = posts.findIndex((post) => post.id === postId);
 
   return (
     <div className="w-1/2 p-4 mx-auto text-center">
       {/* <h1>Post {postId }</h1> */}
-      {posts && <PostCard post={posts[postId - 1]} />}
+      {posts && <PostCard post={posts[postIndex]} />}
       <CreateComment />
       <h2 className="mb-4">Comments</h2>
       {!comments && <Loader />}
