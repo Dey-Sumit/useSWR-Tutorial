@@ -5,7 +5,7 @@ import { IPost } from "../../libs/types";
 const PostCard: FunctionComponent<{ post: IPost }> = ({ post }) => {
   const router = useRouter();
   const handleClick = (e) => {
-    router.push(`/posts/${1}`);
+    router.push(`/posts/${post.id}`);
   };
 
   return (
