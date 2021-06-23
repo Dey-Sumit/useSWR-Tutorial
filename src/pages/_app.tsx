@@ -1,6 +1,6 @@
 import axios from "axios";
 import { SWRConfig } from "swr";
-import "../../styles/globals.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 axios.defaults.baseURL = "http://localhost:3001";
 function MyApp({ Component, pageProps }) {
