@@ -1,34 +1,30 @@
 import { useRouter } from "next/router";
-import useSWR from "swr";
-import { IPost } from "@libs/types";
+
 import CommentsList from "@components/CommentsList";
 import CreateComment from "@components/CreateComment";
 import PostCard from "@components/PostCard";
+import Loader from "@components/Loader";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { IPost } from "@libs/types";
 
 const index = () => {
   const router = useRouter();
   const postId = parseInt(router.query.postId as string);
-  const { data: posts, error: postsError } = useSWR<IPost[]>(postId && `/posts`);
-  // console.log({ , error });
-  // const [comments, setComments] = useState<IComment[]>(null);
-  // const getComments = async () => {
-  //   const { data } = await axios(
-  //     `http://localhost:3001/posts/${postId}/comments`
-  //   );
-  //   console.log({ data });
-  //   setComments(data);
-  // };
 
-  // useEffect(() => {
-  //   postId && getComments();
-  // }, [postId]);
-  const postIndex = posts?.findIndex((post) => post.id === postId);
+  const [post, setPost] = useState<IPost>(null);
+  const getPost = async () => {
+    const { data } = await axios(`/posts/${postId}`);
+    setPost(data);
+  };
+  useEffect(() => {
+    postId && getPost();
+  }, [postId]);
 
   return (
     <div className="w-1/2 p-4 mx-auto">
-
-      {posts && <PostCard post={posts[postIndex]} />}
-      <CreateComment />
+      {!post ? <Loader /> : <PostCard post={post} />}
+      <CreateComment postId={postId} />
       <CommentsList postId={postId} />
     </div>
   );

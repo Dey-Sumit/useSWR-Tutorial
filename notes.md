@@ -43,3 +43,12 @@ mutation
 create a post
 mutation in two ways : destruct the mutation from the useSWR("key")
 import the mutation and pass the key
+
+[ ] get the data without using cache & show the problems
+[ ] use swr to cache the api data
+[ ] Networks Tab & Add Deduping
+[ ] create post manually & show on Focus Feature
+[ ] use global config, add deduping
+[ ] show global cache, get post in comment section
+[ ] show mutation by creating a post
+[ ] mutation in two ways

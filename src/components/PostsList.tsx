@@ -6,27 +6,12 @@ import { IPost } from "@libs/types";
 import Loader from "@components/Loader";
 
 const PostsList = () => {
-  const { data: posts, error } = useSWR<IPost[]>("/posts");
+  // const { data: posts, error } = useSWR<IPost[]>("/posts");
 
-  //const [posts, setPosts] = useState<IPost[]>(null);
-  // const getPosts = async () => {
-  //   const { data } = await axios("http://localhost:3001/posts");
-  //   console.log({ data });
-  //   setPosts(data);
-  // };
 
-  // useEffect(() => {
-  //   getPosts();
-  // }, [getPosts]);
 
   return (
-    <div>
-      <h4>Posts</h4>
-      {!posts && <Loader />}
-      {posts?.map((post, i) => (
-        <PostCard key={i} post={post} />
-      ))}
-    </div>
+    
   );
 };
 
