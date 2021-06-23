@@ -11,62 +11,6 @@
     {
       "id": 3,
       "content": "This is a post with id 3"
-    },
-    {
-      "id": 4,
-      "content": "This is a post with id 4"
-    },
-    {
-      "id": 5,
-      "content": "This is a post with id 5"
-    },
-    {
-      "id": 8,
-      "content": "post with id 6"
-    },
-    {
-      "id": 5564,
-      "content": "post id random"
-    },
-    {
-      "id": 8884,
-      "content": "content 8884"
-    },
-    {
-      "id": 6246,
-      "content": "this is a random id 6246"
-    },
-    {
-      "id": 122,
-      "content": "new content 122"
-    },
-    {
-      "id": 5482,
-      "content": "new content 1 5482"
-    },
-    {
-      "id": 6339,
-      "content": "new content 2 6339"
-    },
-    {
-      "id": 8651,
-      "content": "test new 8651"
-    },
-    {
-      "id": 9884,
-      "content": "new p post  9884"
-    },
-    {
-      "id": 8824,
-      "content": "hahaa 8824"
-    },
-    {
-      "id": 4823,
-      "content": "KOKkata"
-    },
-    {
-      "id": 7127,
-      "content": "new post"
     }
   ],
   "comments": [
@@ -86,19 +30,9 @@
       "postId": 2
     },
     {
-      "id": 4,
+      "id": 5,
       "content": "This is a comment of post 2",
       "postId": 2
-    },
-    {
-      "id": 5,
-      "content": "This is a comment of post 1",
-      "postId": 1
-    },
-    {
-      "id": 6,
-      "content": "This is a comment of post 3",
-      "postId": 3
     },
     {
       "id": 7,

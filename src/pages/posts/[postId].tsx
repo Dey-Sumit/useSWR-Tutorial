@@ -9,41 +9,19 @@ import { useEffect, useState } from "react";
 import { IComment, IPost } from "@libs/types";
 
 const index = () => {
-  const router = useRouter();
-  const postId = parseInt(router.query.postId as string);
+  const getPost = () => {};
 
-  const [post, setPost] = useState<IPost>(null);
-  const [comments, setComments] = useState<IComment[]>(null);
-
-  const getPost = async () => {
-    const { data } = await axios(`/posts/${postId}`);
-    setPost(data);
-  };
-
-  const getComments = async () => {
-    const { data } = await axios(`/posts/${postId}/comments`);
-    setComments(data);
-  };
-
-  useEffect(() => {
-    postId && getComments();
-  }, [postId]);
-
-  useEffect(() => {
-    postId && getPost();
-  }, [postId]);
+  const getComments = () => {};
 
   return (
-    <div className="w-1/2 p-4 mx-auto">
-      {!post ? <Loader /> : <PostCard post={post} />}
-      <CreateComment postId={postId} />
+    <div>
+      <PostCard />
+      <CreateComment />
 
       <h4>Comments</h4>
-      {!comments ? (
-        <Loader />
-      ) : (
-        comments?.map((comment, i) => <CommentCard key={i} comment={comment} />)
-      )}
+      {[...new Array(5)].map((_, i) => (
+        <CommentCard key={i} />
+      ))}
     </div>
   );
 };

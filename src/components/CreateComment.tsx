@@ -1,21 +1,9 @@
-import axios from "axios";
 import { useState } from "react";
 
-const CreateComment = ({ postId }) => {
+const CreateComment = () => {
   const [comment, setComment] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const id = Math.floor(Math.random() * 10000);
-    await axios(`/posts/${postId}/comments`, {
-      method: "POST",
-      data: {
-        id,
-        content: `${comment} ${id}`,
-      },
-    });
-    setComment("");
-  };
+  const handleSubmit = async (e) => {};
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto w-50">
