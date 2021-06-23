@@ -1,13 +1,18 @@
 import CreatePost from "@components/CreatePost";
-import PostsList from "@components/PostsList";
+import PostCard from "@components/PostCard";
 
 export default function Home() {
+  const getPosts = () => {};
+
   return (
-    <>
-      <h4>useSWR Hook Tutorial</h4>
+    <div>
+      <h4>useSWR Hook ⛳</h4>
       <CreatePost />
-      <PostsList />
-      
-    </>
+
+      <h4>Posts</h4>
+      {[...new Array(10)].map((_, i) => (
+        <PostCard key={i} />
+      ))}
+    </div>
   );
 }

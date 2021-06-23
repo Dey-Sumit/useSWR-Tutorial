@@ -3,21 +3,14 @@ import { useState } from "react";
 import useSWR, { mutate } from "swr";
 
 const CreatePost = () => {
-  // const { data: posts, error, mutate } = useSWR<IPost[]>("/posts");
   const [content, setContent] = useState("");
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const id = Math.floor(Math.random() * 10000);
-    await axios("/posts", {
-      method: "POST",
-      data: {
-        id,
-        content: `${content} ${id}`,
-      },
-    });
-    setContent("");
-    // mutate();
-    mutate("/posts");
+    try {
+      //! do some wired stuff
+    } catch (error) {
+      console.log(error.data.response);
+    }
   };
 
   return (

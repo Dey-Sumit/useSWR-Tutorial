@@ -3,9 +3,7 @@ import { useState } from "react";
 const CreateComment = () => {
   const [comment, setComment] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const handleSubmit = async (e) => {};
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto w-50">
