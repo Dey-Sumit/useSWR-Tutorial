@@ -22,10 +22,8 @@ export default function Home() {
       <h4>useSWR Hook Tutorial</h4>
       <CreatePost updatePosts={updatePosts} />
 
-      <div>
-        <h4>Posts</h4>
-        {!posts ? <Loader /> : posts?.map((post, i) => <PostCard key={i} post={post} />)}
-      </div>
+      <h4>Posts</h4>
+      {!posts ? <Loader /> : posts?.map((post, i) => <PostCard key={i} post={post} />)}
     </>
   );
 }

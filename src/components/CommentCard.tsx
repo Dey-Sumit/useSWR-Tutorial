@@ -1,7 +1,7 @@
 import { IComment } from "@libs/types";
 import { FunctionComponent } from "react";
 
-const CommentCard: FunctionComponent<{ data: IComment }> = ({ data: { content } }) => {
+const CommentCard: FunctionComponent<{ comment: IComment }> = ({ comment: { content } }) => {
   return (
     <div className=" card w-50 bg-dark">
       <p className="card-body">{content} </p>
