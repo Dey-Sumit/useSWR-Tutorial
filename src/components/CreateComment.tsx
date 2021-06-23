@@ -1,17 +1,23 @@
+import { useState } from "react";
+
 const CreateComment = () => {
+  const [comment, setComment] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col mb-4 space-y-4 ">
+    <form onSubmit={handleSubmit} className="mx-auto w-50">
       <textarea
-        placeholder="Type the Comment..."
-        rows={3}
-        className="p-1 text-white bg-transparent border"
-      />
-      <button className="w-32 p-1 ml-auto text-sm bg-gray-800 rounded-lg shadow-lg">
-        Add Comment
+        cols={3}
+        className="form-control"
+        placeholder="Write your dream comment:)"
+        onChange={(e) => setComment(e.target.value)}
+        value={comment}
+      ></textarea>
+      <button className="btn btn-outline-warning" type="submit">
+        Add comment
       </button>
     </form>
   );

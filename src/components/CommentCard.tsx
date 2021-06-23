@@ -1,7 +1,10 @@
-const CommentCard = ({ data }) => {
+import { IComment } from "@libs/types";
+import { FunctionComponent } from "react";
+
+const CommentCard: FunctionComponent<{ data: IComment }> = ({ data: { content } }) => {
   return (
-    <div className="p-2 mb-2 bg-gray-800 rounded-lg shadow-xl cursor-pointer hover:bg-gray-700">
-      {data.content}
+    <div className=" card w-50 bg-dark">
+      <p className="card-body">{content} </p>
     </div>
   );
 };

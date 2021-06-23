@@ -1,9 +1,9 @@
 import useSWR from "swr";
-import PostCard from "../components/PostCard";
+import PostCard from "@components/PostCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { IPost } from "../../libs/types";
-import Loader from "./Loader";
+import { IPost } from "@libs/types";
+import Loader from "@components/Loader";
 
 const PostsList = () => {
   const { data: posts, error } = useSWR<IPost[]>("/posts");
@@ -21,7 +21,7 @@ const PostsList = () => {
 
   return (
     <div>
-      <h1 className="mb-4 text-3xl">Posts</h1>
+      <h4>Posts</h4>
       {!posts && <Loader />}
       {posts?.map((post, i) => (
         <PostCard key={i} post={post} />

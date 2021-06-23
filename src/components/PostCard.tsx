@@ -1,19 +1,17 @@
 import { useRouter } from "next/router";
 import { FunctionComponent } from "react";
-import { IPost } from "../../libs/types";
+import { IPost } from "@libs/types";
 
-const PostCard: FunctionComponent<{ post: IPost }> = ({ post }) => {
+const PostCard: FunctionComponent<{ post: IPost }> = ({ post: { content, id } }) => {
   const router = useRouter();
-  const handleClick = (e) => {
-    router.push(`/posts/${post.id}`);
+  const handleClick = () => {
+    router.push(`/posts/${id}`);
   };
 
   return (
-    <div
-      className="p-2 mb-2 bg-gray-800 rounded-lg shadow-xl cursor-pointer hover:bg-gray-700"
-      onClick={handleClick}
-    >
-      {post.content}
+    <div className="card w-50 bg-dark" onClick={handleClick}>
+      <p className="card-header">Post Id : {id}</p>
+      <p className="card-body">{content}</p>
     </div>
   );
 };

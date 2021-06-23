@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { IPost } from "../../../libs/types";
-import CommentsList from "../../components/CommentsList";
-import CreateComment from "../../components/CreateComment";
-import PostCard from "../../components/PostCard";
+import { IPost } from "@libs/types";
+import CommentsList from "@components/CommentsList";
+import CreateComment from "@components/CreateComment";
+import PostCard from "@components/PostCard";
 
 const index = () => {
   const router = useRouter();
@@ -22,11 +22,11 @@ const index = () => {
   // useEffect(() => {
   //   postId && getComments();
   // }, [postId]);
-  const postIndex = posts.findIndex((post) => post.id === postId);
+  const postIndex = posts?.findIndex((post) => post.id === postId);
 
   return (
-    <div className="w-1/2 p-4 mx-auto text-center">
-      {/* <h1>Post {postId }</h1> */}
+    <div className="w-1/2 p-4 mx-auto">
+
       {posts && <PostCard post={posts[postIndex]} />}
       <CreateComment />
       <CommentsList postId={postId} />

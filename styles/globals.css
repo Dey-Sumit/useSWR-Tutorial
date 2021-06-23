@@ -1,31 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 body {
   height: 100vh;
-  background-color: rgba(17, 24, 39, 1);
+  background-color: #212529;
+  color: #fff;
+  font-family: sans-serif;
 }
-
-.loader {
-  border-top-color: #1f6492;
-  -webkit-animation: spinner 1.5s linear infinite;
-  animation: spinner 1.5s linear infinite;
+p {
+  margin: 0;
 }
-
-@-webkit-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
+h4 {
+  margin: 1rem 0;
+  text-align: center;
 }
-/* //TODO FIX */
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.card {
+  box-shadow: 5px 5px 8px #1e1d1e, -5px -5px 8px #484748;
+  cursor: pointer;
+  margin: 0 auto 1rem;
+}
+.btn {
+  margin-top: 1rem;
 }

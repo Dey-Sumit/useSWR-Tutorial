@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import useSWR, { mutate } from "swr";
-import { IPost } from "../../libs/types";
 
 const CreatePost = () => {
   // const { data: posts, error, mutate } = useSWR<IPost[]>("/posts");
@@ -22,15 +21,15 @@ const CreatePost = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col mb-4 space-y-4 ">
+    <form onSubmit={handleSubmit} className="mx-auto w-50 ">
       <textarea
+        cols={3}
+        className="form-control"
+        placeholder="Write your dream post:)"
         onChange={(e) => setContent(e.target.value)}
         value={content}
-        placeholder="Type the post..."
-        rows={3}
-        className="p-1 text-white bg-transparent border"
-      />
-      <button className="w-32 p-1 ml-auto text-sm bg-gray-800 rounded-lg shadow-lg">
+      ></textarea>
+      <button className="btn btn-outline-warning" type="submit">
         Add Post
       </button>
     </form>
