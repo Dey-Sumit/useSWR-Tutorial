@@ -1,6 +1,3 @@
-import { IComment } from "@libs/types";
-import { FunctionComponent } from "react";
-
 const CommentCard = () => {
   return (
     <div className=" card w-50 bg-dark">

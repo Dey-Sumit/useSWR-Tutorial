@@ -2,7 +2,9 @@ import CreatePost from "@components/CreatePost";
 import PostCard from "@components/PostCard";
 
 export default function Home() {
-  const getPosts = () => {};
+  const getPosts = () => {
+    
+  };
 
   return (
     <div>

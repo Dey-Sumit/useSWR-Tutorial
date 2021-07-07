@@ -1,16 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
-import useSWR, { mutate } from "swr";
 
 const CreatePost = () => {
   const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
-    try {
-      //! do some wired stuff
-    } catch (error) {
-      console.log(error.data.response);
-    }
+    //! do some wired stuff
   };
 
   return (
