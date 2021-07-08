@@ -26,7 +26,7 @@ const index = () => {
     setPage,
     isLoadingMore,
     isReachedEnd,
-  } = usePagination(`/posts/${postId}/comments`);
+  } = usePagination<IComment>(`/posts/${postId}/comments`);
 
   // const [comments, setComments] = useState<IComment[]>();
   // const [post, setPost] = useState<IPost>();

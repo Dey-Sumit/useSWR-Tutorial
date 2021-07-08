@@ -2,9 +2,8 @@ import CreatePost from "@components/CreatePost";
 import PostCard from "@components/PostCard";
 import Loader from "@components/Loader";
 import { IPost } from "@libs/types";
-
-import { useSWRInfinite } from "swr";
 import { usePagination } from "@libs/usePagination";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Home() {
   //! 4 👇
@@ -15,7 +14,7 @@ export default function Home() {
     setPage,
     isLoadingMore,
     isReachedEnd,
-  } = usePagination("/posts");
+  } = usePagination<IPost>("/posts");
 
   // //! 1 👇
   // const [posts, setPosts] = useState<IPost[]>();
@@ -38,21 +37,20 @@ export default function Home() {
       <h4>Posts</h4>
 
       {/* {error && <h4>something went wrong</h4>} */}
-      {paginatedPosts?.map((post, i) => (
-        <PostCard key={i} post={post} />
-      ))}
-      {/* {!posts && <Loader />} */}
-      {!paginatedPosts.length && <Loader />}
+      <InfiniteScroll
+        dataLength={paginatedPosts.length}
+        next={() => setPage(page + 1)}
+        hasMore={!isReachedEnd}
+        loader={<Loader />}
+        endMessage={<p className="text-center">No more posts</p>}
+      >
+        {paginatedPosts?.map((post, i) => (
+          <PostCard key={i} post={post} />
+        ))}
+      </InfiniteScroll>
 
-      {isLoadingMore && <Loader />}
-      {!!paginatedPosts.length && !isReachedEnd && (
-        <button
-          onClick={() => setPage(page + 1)}
-          className=" btn btn-outline-warning d-block mx-auto"
-        >
-          Load More
-        </button>
-      )}
+      {/* {!posts && <Loader />} */}
+      {/* {!paginatedPosts.length && <Loader />} */}
     </div>
   );
 }
