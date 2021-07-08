@@ -5,6 +5,8 @@ import { IPost } from "@libs/types";
 import { usePagination } from "@libs/usePagination";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+//LOL. why is it working?
+
 export default function Home() {
   //! 4 👇
   // const { data: posts, error } = useSWR<IPost[]>(`/posts`);
