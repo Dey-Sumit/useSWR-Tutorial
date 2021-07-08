@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "json-server": "json-server db.json -d 2000 -p 3001 -w db.json"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
+    "json-server": "^0.16.3",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
