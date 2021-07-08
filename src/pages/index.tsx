@@ -24,7 +24,8 @@ export default function Home() {
     <div>
       <h4>useSWR Hook ⛳</h4>
 
-      {/* <CreatePost setPosts={setPosts} /> */}
+      {/* //8 👇 */}
+      <CreatePost />
 
       <h4>Posts</h4>
 

@@ -49,7 +49,7 @@ const index = () => {
     <div>
       {posts ? <PostCard post={posts[postIndex]} /> : <Loader />}
 
-      <CreateComment />
+      <CreateComment postId={postId}/>
 
       <h4>Comments</h4>
 
