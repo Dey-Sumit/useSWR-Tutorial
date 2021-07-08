@@ -14,7 +14,7 @@ export default function Home() {
     setPage,
     isLoadingMore,
     isReachedEnd,
-  } = usePagination<IPost>("/posts");
+  } = usePagination<IPost>("/posts?_sort=createdAt&_order=desc");
 
   // //! 1 👇
   // const [posts, setPosts] = useState<IPost[]>();

@@ -1,11 +1,13 @@
 import { IPost } from "@libs/types";
+import { usePagination } from "@libs/usePagination";
 import axios from "axios";
 import { useState } from "react";
-import { mutate } from "swr";
 
 const CreatePost = () => {
   const [content, setContent] = useState("");
-
+  const { mutate: paginatedPostsMutate } = usePagination<IPost>(
+    "/posts?_sort=createdAt&_order=desc"
+  );
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -17,10 +19,14 @@ const CreatePost = () => {
     const FAKE_POST = {
       id,
       content: new_content,
+      createdAt: Date.now(),
       clientOnly: true,
     };
 
-    mutate("/posts", (existingPosts: IPost[]) => [...existingPosts, FAKE_POST], false);
+    paginatedPostsMutate((data) => {
+      return [[FAKE_POST], ...data];
+    }, false);
+
     setContent("");
 
     await axios("/posts", {
@@ -28,9 +34,10 @@ const CreatePost = () => {
       data: {
         id,
         content: new_content,
+        createdAt: Date.now(),
       },
     });
-    mutate("/posts");
+    paginatedPostsMutate();
   };
 
   return (

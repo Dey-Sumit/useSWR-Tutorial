@@ -5,10 +5,10 @@ export const usePagination = <T>(url: string) => {
   const getKey = (pageIndex: number, previousPageData: T[]) => {
     pageIndex = pageIndex + 1;
     if (previousPageData && !previousPageData.length) return null; // reached the end
-    return `${url}?_page=${pageIndex}&_limit=${PAGE_SIZE}`; // SWR key
+    return `${url}&_page=${pageIndex}&_limit=${PAGE_SIZE}`; // SWR key
   };
 
-  const { data, size: page, setSize: setPage, error, isValidating } = useSWRInfinite(getKey);
+  const { data, size: page, setSize: setPage, error, isValidating,mutate } = useSWRInfinite(getKey);
 
   const paginatedData: T[] = [].concat.apply([], data);
 
@@ -16,6 +16,7 @@ export const usePagination = <T>(url: string) => {
 
   const isReachedEnd = data && data[data.length - 1]?.length < PAGE_SIZE;
   return {
+    mutate,
     error,
     paginatedData,
     page,
