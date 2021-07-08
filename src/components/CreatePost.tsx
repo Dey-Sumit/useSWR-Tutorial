@@ -1,10 +1,21 @@
+import axios from "axios";
 import { useState } from "react";
 
-const CreatePost = () => {
+const CreatePost = ({ setPosts }) => {
   const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
-    //! do some wired stuff
+    e.preventDefault();
+    const id = Math.floor(Math.random() * 10000);
+    const { data } = await axios("/posts", {
+      method: "POST",
+      data: {
+        id,
+        content: `${content} with ${id}`,
+      },
+    });
+    setPosts((posts) => [...posts, data]);
+    setContent("");
   };
 
   return (
