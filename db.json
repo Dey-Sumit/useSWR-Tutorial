@@ -1,0 +1,101 @@
+{
+  "posts": [
+    {
+      "id": 0,
+      "content": "This is a post with id 0",
+      "createdAt": 1625745022480
+    },
+    {
+      "id": 1,
+      "content": "This is a post with id 1",
+      "createdAt": 1625745022490
+    },
+    {
+      "id": 2739,
+      "content": "post 1 with 2739",
+      "createdAt": 1625745022499
+    },
+    {
+      "id": 3680,
+      "content": "post 2 with 3680",
+      "createdAt": 1625745030510
+    },
+    {
+      "id": 8273,
+      "content": "hey with 8273",
+      "createdAt": 1625745583005
+    },
+    {
+      "id": 768,
+      "content": "hi with 768",
+      "createdAt": 1625745629295
+    },
+    {
+      "id": 2973,
+      "content": "hiii with 2973",
+      "createdAt": 1625745641280
+    },
+    {
+      "id": 894,
+      "content": "lol with 894",
+      "createdAt": 1625745656349
+    },
+    {
+      "id": 5509,
+      "content": "x with 5509",
+      "createdAt": 1625746096268
+    },
+    {
+      "id": 9162,
+      "content": "jo with 9162",
+      "createdAt": 1625746258863
+    },
+    {
+      "id": 7129,
+      "content": "joo with 7129",
+      "createdAt": 1625746294166
+    },
+    {
+      "id": 5213,
+      "content": "hy with 5213",
+      "createdAt": 1625746325913
+    },
+    {
+      "id": 7383,
+      "content": "abc with 7383",
+      "createdAt": 1625746377788
+    },
+    {
+      "id": 7964,
+      "content": "def with 7964",
+      "createdAt": 1625746391044
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "content": "This is a comment of post 1",
+      "postId": 1
+    },
+    {
+      "id": 3,
+      "content": "This is a comment of post 1",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "content": "This is a comment of post 2",
+      "postId": 2
+    },
+    {
+      "id": 5,
+      "content": "This is a comment of post 2",
+      "postId": 2
+    },
+    {
+      "id": 7,
+      "content": "This is a comment of post 3",
+      "postId": 3
+    }
+  ]
+}
