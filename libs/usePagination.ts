@@ -1,6 +1,6 @@
-import { useSWRInfinite } from "swr";
+import { SWRInfiniteConfiguration, useSWRInfinite } from "swr";
 
-export const usePagination = <T>(url: string) => {
+export const usePagination = <T>(url: string, options?: SWRInfiniteConfiguration) => {
   const PAGE_SIZE = 6;
   const getKey = (pageIndex: number, previousPageData: T[]) => {
     pageIndex = pageIndex + 1;
@@ -8,7 +8,14 @@ export const usePagination = <T>(url: string) => {
     return `${url}&_page=${pageIndex}&_limit=${PAGE_SIZE}`; // SWR key
   };
 
-  const { data, size: page, setSize: setPage, error, isValidating,mutate } = useSWRInfinite(getKey);
+  const {
+    data,
+    size: page,
+    setSize: setPage,
+    error,
+    isValidating,
+    mutate,
+  } = useSWRInfinite(getKey, options);
 
   const paginatedData: T[] = [].concat.apply([], data);
 

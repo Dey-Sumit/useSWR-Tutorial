@@ -6,7 +6,10 @@ import { useState } from "react";
 const CreatePost = () => {
   const [content, setContent] = useState("");
   const { mutate: paginatedPostsMutate } = usePagination<IPost>(
-    "/posts?_sort=createdAt&_order=desc"
+    "/posts?_sort=createdAt&_order=desc",
+    {
+      revalidateOnMount: false,
+    }
   );
   const handleSubmit = async (e) => {
     e.preventDefault();

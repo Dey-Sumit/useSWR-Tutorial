@@ -75,7 +75,7 @@ const index = () => {
       {paginatedComments.length && !isReachedEnd && (
         <button
           onClick={() => setPage(page + 1)}
-          className=" btn btn-outline-warning d-block mx-auto"
+          className="mx-auto btn btn-outline-warning d-block"
         >
           Load More
         </button>

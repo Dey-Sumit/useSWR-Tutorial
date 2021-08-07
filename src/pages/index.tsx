@@ -4,10 +4,12 @@ import Loader from "@components/Loader";
 import { IPost } from "@libs/types";
 import { usePagination } from "@libs/usePagination";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { GetServerSidePropsContext } from "next";
+import axios from "axios";
 
 //LOL. why is it working?
 
-export default function Home() {
+export default function Home({ posts }) {
   //! 4 👇
   // const { data: posts, error } = useSWR<IPost[]>(`/posts`);
   const {
@@ -16,7 +18,9 @@ export default function Home() {
     setPage,
     isLoadingMore,
     isReachedEnd,
-  } = usePagination<IPost>("/posts?_sort=createdAt&_order=desc");
+  } = usePagination<IPost>("/posts?_sort=createdAt&_order=desc", {
+    initialData: posts.length > 0 ? posts : null,
+  });
 
   // //! 1 👇
   // const [posts, setPosts] = useState<IPost[]>();
@@ -55,4 +59,22 @@ export default function Home() {
       {/* {!paginatedPosts.length && <Loader />} */}
     </div>
   );
+}
+export async function getServerSideProps() {
+  let posts: IPost[];
+  try {
+    const { data } = await axios(
+      "http://localhost:3001/posts?_sort=createdAt&_order=desc&_page=0&_limit=6"
+    );
+    console.log({ data });
+    posts = data;
+  } catch (error) {
+    console.log(error.message);
+  }
+
+  return {
+    props: {
+      posts: posts ?? [],
+    }, // will be passed to the page component as props
+  };
 }
